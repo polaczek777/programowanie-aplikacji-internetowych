@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styl_2.css">
+    <title>Stacja paliw</title>
+</head>
+<body>
+    <div class="baner">
+        <h1>Całodobowa stacja paliw</h1>
+    </div>
+    <div class="menu">
+        <a href="stacja.html"><img src="home.png"></a>
+        <a href="obliczenia.html"><img src="znak.png"></a>
+        <a href="kwerendy.txt">Pobierz dokumenty</a>
+    </div>
+    <div class="lewy">
+        <h2>Orientacyjny koszt paliwa</h2>
+        <label for="rodzaj">Rodzaj paliwa (1-benzyna, 2-olej napędowy): </label><br>
+        <input type="number" id="rodzaj" name="rodzaj"><br>
+        <label for="ile">Ile litrów?</label><br>
+        <input type="number" id="ile" name="ile"><br>
+        <button type="submit" name="oblicz" onclick="obliczCene()">OBLICZ</button>
+        <p id="wynik"></p>
+    </div>
+    <script>
+        function obliczCene(){
+            let paliwo=document.querySelector("#rodzaj").value;
+            let litry=document.querySelector("#ile").value;
+            let cena;
+            if(paliwo==1){
+                cena=4;
+            }else if(paliwo==2){
+                cena=3.5;
+            }else{
+                cena=0;
+            };
+            document.querySelector("#wynik").innerHTML=cena*litry;
+        };
+    </script>
+    <div class="prawy">
+        <img src="samochod.png" alt="samochód">
+    </div>
+    <div class="stopka">
+        <p>Stronę opracował: <samp>12313123</samp><p>
+    </div>
+</body>
+</html>
+
