@@ -35,12 +35,21 @@
         $username="root";
         $password="";
         $db="kwiaciarnia";
-
-        $conn=mysqli_connect($localserver,$username,$password,$db);
+        if(isset($_POST["nazwa"])){
+        $conn=mysqli_connect($localhost,$username,$password,$db);
         if(!$conn){
             die("Connection faild: ".mysqli_connect_error());
         }
-        mysqli_close($conn)
+
+        $nazwa=$_POST["nazwa"];
+        $sql="SELECT nazwa, ulica FROM kwiaciarnie WHERE miasto=$nazwa";
+        $wynik=mysqli_query($conn,$sql);
+        if(mysqli_num_rows($wynik)>0){
+            $row=mysqli_fetch_row($wynik);
+            echo "<h3>$row[0],$row[1]</h3>";
+        }
+        mysqli_close($conn);
+        }
         ?>
     </div>
     <div class="stopka">
