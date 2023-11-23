@@ -1,0 +1,49 @@
+body{
+    font-family: Cambria;
+}
+.baner,.stopka{
+    background-color: #829EB9;
+    color: white;
+    text-align: center;
+    padding: 1px;
+}
+.lewy,.prawy{
+    background-color: #B3C6D9;
+    height: 400px;
+    width: 25%;
+    padding-top: 100px;
+    float: left;
+}
+.środkowy{
+    background-color: #E0E9F1;
+    height: 400px;
+    width: 50%;
+    text-align: center;
+    padding-top: 100px;
+    float: left;
+}
+table{
+    border: solid 1px dimgray;
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+th,td{
+    border: solid 1px dimgray;
+    border-collapse: collapse;
+}
+td:hover{
+    background-color: steelblue;
+    color: white;
+}
+img{
+    width: 100%;
+    border-radius: 20px;
+}
+/*
+– Dla selektora komórki tabeli i komórki nagłówkowej: obramowanie linią ciągłą o szerokości 1 px 
+i kolorze DimGray, obramowanie połączone w jedną linię
+– Gdy kursor myszy znajdzie się na komórce tabeli jej kolor tła zamienia się na SteelBlue a kolor czcionki 
+na biały
+– Dla selektora obrazu: szerokość 100%, zaokrąglenie rogów 20 px
+ */
