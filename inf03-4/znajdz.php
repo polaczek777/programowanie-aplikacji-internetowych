@@ -42,7 +42,7 @@
         }
 
         $nazwa=$_POST["nazwa"];
-        $sql="SELECT nazwa, ulica FROM kwiaciarnie WHERE miasto=$nazwa";
+        $sql="SELECT nazwa, ulica FROM kwiaciarnie WHERE miasto='$nazwa'";
         $wynik=mysqli_query($conn,$sql);
         if(mysqli_num_rows($wynik)>0){
             $row=mysqli_fetch_row($wynik);

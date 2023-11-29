@@ -29,14 +29,10 @@ img{
 li{
     margin: 5px;
 }
-ol,ul{
+li::marker{
     color: snow;
 }
 h3{
     margin-top: 50px;
     margin-bottom: 50px;
 }
-/* 
-‒ Dla selektora elementu listy: marginesy zewnętrzne 5 px
-‒ Dla znaku markera (punktora / cyfry) w elemencie listy: kolor czcionki Snow
-‒ Dla selektora nagłówka trzeciego stopnia: marginesy zewnętrzne górny i dolny 50 px, pozostałe 0 */
