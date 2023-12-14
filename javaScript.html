@@ -155,10 +155,228 @@
     document.write('znlaeziono kod: '+tekst.slice(pozycja,pozycja+6));
 </script> -->
 
-<h1>Wyszukiwanie pliku *.gif<h1>
+<!-- <h1>Wyszukiwanie pliku *.gif<h1>
 <script>
     let tekst="Ikona jest w pliku logo.gif";
     let wzorzec=/\S*\.gif/i;
     let pozycja=tekst.search(wzorzec);
     document.write('znlaeziono: '+tekst.slice(pozycja));
+</script> -->
+
+<!-- <h1>Wyszukiwanie regularne - adres email<h1>
+<script>
+    let tekst="adres email: john1.fasola2@in.pl";
+    var wzorzec=/[\w_\.-]+@([-A-z0-9]+\.)+[A-z]/;
+    let pozycja=tekst.search(wzorzec);
+    document.write(tekst.slice(pozycja));
+</script> -->
+
+<!-- <h1>Wyszukiwanie regularne - Wyszukiwanie daty<h1>
+<script>
+    let tekst="Maków Podhalański 17.11.2022r";
+    var wzorzec=/([0123]?\d)[\.-\/]([01]?\d)[\.-\/](\d{4})/;
+    let pozycja=tekst.search(wzorzec);
+    document.write(tekst.slice(pozycja));
+</script> -->
+
+<!-- ============================================================================================================
+                                            FORMULARZE 
+============================================================================================================ -->
+<!-- <h1>Walidacja formularzy<h1>
+<form action="write2DB.php">
+    <label for="name">Wprowadz imię*</label>
+    <input type="text" name="imie" required>
+    <input type="submit" value="zapisz">
+    <p>*pole wymagane</p>
+</form> -->
+
+<!-- <h1>Walidacja formularzy - kontrola liczb<h1>
+<form action="write2DB.php">
+    <label for="waga">Wprowadz wagę</label>
+    <input type="number" name="waga" min="1" max="200">
+    <input type="submit" value="zapisz">
+</form> -->
+
+<!-- <h1>Walidacja formularzy - zakres liczb - JS<h1>
+<p id="wynik"></p>
+<form action="write2DB.php">
+    <label for="liczba">Wprowadz liczbę*</label>
+    <input type="number" name="liczba" id="liczba">
+    <button type="button" onclick="checkNumber()">Wyślij</button>
+    <p>*pole wymagane</p>
+</form>
+<script>
+    function checkNumber(){
+        const MIN=1;
+        const MAX=10;
+        var result;
+        let liczba=document.querySelector("#liczba").value;
+        if(liczba>=MIN && liczba<=MAX){
+            result="Dane poprawne";
+        }else{
+            result="Dane niepoprawne";
+        }
+        document.querySelector("#wynik").innerHTML=result;
+    }
+</script> -->
+
+<!-- <h1>Walidacja formularzy - adres email<h1>
+<form name="myform" id="form1" action="write2DB.php">
+    <label for="name">Wprowadz adres email*</label>
+    <input type="text" name="email" id="email">
+    <p id="wynik"></p>
+    <input type="submit" value="Wyślij" id="send">
+    <p>*pole wymagane</p>
+</form>
+<script>
+    document.querySelector("#send").addEventListener("clik",checkMail);
+    function checkMail(event){
+        let mailText=document.querySelector("#email").value;
+        let reg_mail=/[\w-\.]+@([-A-z0-9]+\.)+[A-z]/;
+        let position=mailText.search(reg_mail);
+        if(position==-1){
+            document.querySelector("#wynik").innerHTML="Nie znaleziono";
+            event.preventDefault();
+        }
+        if(mailText==""){
+            document.querySelector("#wynik").innerHTML="Nie może być puste";
+            return false;
+        }
+    }
+</script> -->
+
+<!-- <h3>setTimeout() - urachamia funkcję po jakimś czasie<h3>
+<script>
+    function myfunction(){
+        consile.log("Jakiś komunikat");
+    }
+    setTimeout(myfunction,5000);
+</script> -->
+
+<!-- <h3>clearTimeout() - zatrzymuje urachamioną funkcję poprzez setTimeout()<h3>
+<script>
+    function myfunction(){
+        consile.log("Jakiś komunikat");
+    }
+    let funkcja=setTimeout(myfunction,10000);
+    console.log("funkcja uruchomiona");
+    clearTimeout(funkcja);
+</script> -->
+
+<!-- <h3>setInterval() - funkcja urachamiana co jakiś czas<h3>
+<p id="timer"></p>
+<script>
+    function time(){
+        let now=new Date();
+        let hours=now.getHours().toString();
+        let miutes=now.getMinutes().toString();
+        let seconds=now.getSeconds().toString();
+        let currentTime=hours+":"+miutes+":"+seconds;
+        let place=document.querySelector("#timer");
+        place.innerHTML=currentTime;
+    }
+    setInterval(time,1000);
+</script> -->
+
+<!-- <h3>setInterval() - funkcja urachamiana co jakiś czas<h3>
+<p id="timer"></p>
+<script>
+    function stoper(){
+        let sec=0;
+        let min=0;
+        let hours=0;
+        let time=setInterval(
+                        (function){
+                            if(sec==59){
+                                if(min==59){
+                                    hours++;
+                                    min=0;
+                                }else{
+                                    min++;}
+                                sec=0;
+                            }else{
+                                sec++;
+                            }
+                            let czas=hours+":"+min+":"+sec;
+                            let place=document.querySelector("#timer");
+                            place.innerHTML=czas;
+                        },1000);
+    }
+</script> -->
+
+<!-- ============================================================================================================
+                                            OBIEKTOWOŚĆ 
+============================================================================================================ -->
+<!-- <script>
+    const car={
+        brand: "Fiat",
+        model: "500",
+        color: "white"
+    }
+    console.log(car);
+    console.log(car.brand);
+    console.log(car.model);
+</script> -->
+
+<!-- <h1>Obiekt: person(firstname,lastName,id,FullName())</h1>
+<script>
+    let i=0;
+    let person={
+       firstName: "Adam",
+       lastName: "Baca",
+       id: 5,
+       fullName: function(){
+        return this.firstName+" "+this.lastName;
+       }
+    }
+    console.log(typeof(i));
+    console.log(person["lastName"]);
+    console.log(person.fullName());
+</script> -->
+
+<!-- <h1>Klasa</h1>
+<script>
+    class Car{
+        constructor(name,year){
+            this.name=name;
+            this.year=year;
+        }
+    }
+    let myCar1=new Car("Ford",2015);
+    console.log(myCar1.name);
+</script> -->
+
+<!-- <h1>prywatne składowe obiektu</h1>
+<script>
+    class ClassWithPrivateField{
+        #privateField;
+        constructor(){
+            this.#privateField=42;
+        }
+        show(){
+            return this.#privateField;
+        }
+    }
+    const instance = new ClassWithPrivateField();
+    console.log(instance.show());
+</script> -->
+
+<!-- <h1>Dziedziczenie</h1>
+<p>Tworzenie obiektu pochodnego na podstawie bazowego</p>
+<script>
+    class DateFormatte extends Date{
+        getFormattedDate(){
+            const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            return `${this.getDate()}-${months[this.getMonth()]}-${this.getFullYear()}`;
+        }
+    }
+    console.log(new DateFormatte().getFormattedDate());
+</script> -->
+
+<h1>Hoinka</h1>
+<script>
+    document.write("&nbsp".repeat(77)+"*"+"<br>");
+    [0,1,2,3,4,5,6,7,8,1,1].map(x=>
+    {y=x*2+1;document.write("&nbsp".repeat(80-y)+'*'.repeat(y)+"<br>")})
+    document.write("&nbsp".repeat(73)+"[][][]"+"<br>")
 </script>
